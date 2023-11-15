@@ -21,9 +21,13 @@ class BillStockMenu extends StatelessWidget {
     AppStrings.viewTheBills,
   ];
   final List bodyItemsSecond = [
-    AppStrings.backBillStock,
+    AppStrings.exChange,
     AppStrings.billShortagePlus,
     AppStrings.billShortageMinus,
+    AppStrings.viewTheBills,
+  ];
+  final List bodyItemsThird = [
+    AppStrings.backBillStock,
     AppStrings.viewTheBills,
   ];
   final String kind;
@@ -44,7 +48,11 @@ class BillStockMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return MyDropMenu(
       label: AppStrings.stockMovement,
-      bodyItems: kind == AppStrings.allPrimisons ? bodyItems : bodyItemsSecond,
+      bodyItems: kind == AppStrings.allPrimisons
+          ? bodyItems
+          : kind == AppStrings.stock
+              ? bodyItemsSecond
+              : bodyItemsThird,
       onChanged: (value) async {
         await itemController.getItems();
         switch (value) {

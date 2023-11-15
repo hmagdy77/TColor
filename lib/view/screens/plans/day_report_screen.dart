@@ -762,15 +762,15 @@ class BillsShortageComponents extends StatelessWidget {
           onPressed: () {
             dayReportsController.clearAllPrintsList();
             //*******************************Bills shortage************************************
-            List billsShortageProd =
-                dayReportsController.billsShortageProdCarts.values.toList();
-            for (int i = 0; i < billsShortageProd.length; i++) {
-              dayReportsController.billsShortageProdPrintList.add(
+            List billsShortageCom =
+                dayReportsController.billsShortageComCarts.values.toList();
+            for (int i = 0; i < billsShortageCom.length; i++) {
+              dayReportsController.billsShortageComPrintList.add(
                 [
-                  double.parse(billsShortageProd[i].itemMax).toStringAsFixed(2),
-                  double.parse(billsShortageProd[i].itemMin).toStringAsFixed(2),
-                  billsShortageProd[i].itemNum,
-                  billsShortageProd[i].itemName,
+                  double.parse(billsShortageCom[i].itemMax).toStringAsFixed(2),
+                  double.parse(billsShortageCom[i].itemMin).toStringAsFixed(2),
+                  billsShortageCom[i].itemNum,
+                  billsShortageCom[i].itemName,
                 ],
               );
             }
@@ -781,7 +781,7 @@ class BillsShortageComponents extends StatelessWidget {
                 AppStrings.itemNum,
                 AppStrings.itemName,
               ],
-              printList: dayReportsController.billsShortageProdPrintList,
+              printList: dayReportsController.billsShortageComPrintList,
               label: AppStrings.theShortage,
               subLabel: AppStrings.components,
               date: dayReportsController.currentDateView.value,
@@ -825,21 +825,22 @@ class BillsShortageProudcts extends StatelessWidget {
         SizedBox(
           height: AppSizes.h02,
         ),
+
         MyButton(
           text: AppStrings.print,
           color: context.theme.primaryColorDark,
           onPressed: () {
             dayReportsController.clearAllPrintsList();
             //*******************************Bills shortage************************************
-            List billsShortageCom =
-                dayReportsController.billsShortageComCarts.values.toList();
-            for (int i = 0; i < billsShortageCom.length; i++) {
-              dayReportsController.billsShortageComPrintList.add(
+            List billsShortageProd =
+                dayReportsController.billsShortageProdCarts.values.toList();
+            for (int i = 0; i < billsShortageProd.length; i++) {
+              dayReportsController.billsShortageProdPrintList.add(
                 [
-                  double.parse(billsShortageCom[i].itemMax).toStringAsFixed(2),
-                  double.parse(billsShortageCom[i].itemMin).toStringAsFixed(2),
-                  billsShortageCom[i].itemNum,
-                  billsShortageCom[i].itemName,
+                  double.parse(billsShortageProd[i].itemMax).toStringAsFixed(2),
+                  double.parse(billsShortageProd[i].itemMin).toStringAsFixed(2),
+                  billsShortageProd[i].itemNum,
+                  billsShortageProd[i].itemName,
                 ],
               );
             }
@@ -850,7 +851,7 @@ class BillsShortageProudcts extends StatelessWidget {
                 AppStrings.itemNum,
                 AppStrings.itemName,
               ],
-              printList: dayReportsController.billsShortageComPrintList,
+              printList: dayReportsController.billsShortageProdPrintList,
               label: AppStrings.theShortage,
               subLabel: AppStrings.products,
               date: dayReportsController.currentDateView.value,

@@ -31,13 +31,13 @@ class UpperWidget extends StatelessWidget {
   final BillInControllerImp billInController = Get.find<BillInControllerImp>();
   final BillInCartControllerImp billInCartController =
       Get.find<BillInCartControllerImp>();
-
   final IngredientControllerImp ingredientController =
       Get.find<IngredientControllerImp>();
 
   @override
   Widget build(BuildContext context) {
     int? key = myService.sharedPreferences.getInt(AppStrings.adminKey);
+    String? name = UsersControllerImp.empName;
     if (key == 1) {
       return const PremisionAdmin();
     } else if (key == 2) {
@@ -47,12 +47,14 @@ class UpperWidget extends StatelessWidget {
         billInController: billInController,
         billInCartController: billInCartController,
         ingredientController: ingredientController,
+        name: name!,
       );
     } else if (key == 3) {
       return PremisionFactory(
         itemController: itemController,
         usersController: usersController,
         planController: planController,
+        name: name!,
       );
     } else if (key == 4) {
       return PremisionStock(
@@ -60,6 +62,7 @@ class UpperWidget extends StatelessWidget {
         planController: planController,
         planItemController: planItemController,
         usersController: usersController,
+        name: name!,
       );
     } else {
       return PremisionEmpty(
@@ -156,13 +159,14 @@ class PremisionStock extends StatelessWidget {
     required this.planController,
     required this.planItemController,
     required this.usersController,
+    required this.name,
   });
 
   final BillStockCartControllerImp billStockCartController;
   final PlanControllerImp planController;
   final PlanItemControllerImp planItemController;
   final UsersControllerImp usersController;
-
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -178,23 +182,8 @@ class PremisionStock extends StatelessWidget {
               style: context.textTheme.displaySmall,
             ),
           ),
-          TextButton(
-            onPressed: () async {
-              billStockCartController.clearCart();
-              await planController.getPlans();
-              await planItemController.getItemsByIndex(
-                planId: planController.plansListReversed[1].id.toString(),
-              );
-              Get.offAllNamed(
-                AppRoutes.addBillStockScreen,
-                arguments: [planController.plansListReversed[1]],
-              );
-            },
-            child: Text(
-              AppStrings.exChange,
-              style: context.textTheme.displaySmall,
-            ),
-          ),
+          StockMenu(kind: ''),
+          BillStockMenu(kind: AppStrings.stock),
           TextButton(
             onPressed: () async {
               Get.offAllNamed(AppRoutes.dayReportsScreen);
@@ -204,7 +193,9 @@ class PremisionStock extends StatelessWidget {
               style: context.textTheme.displaySmall,
             ),
           ),
-          StockMenu(kind: ''),
+          SizedBox(
+            width: AppSizes.h01,
+          ),
           IconButton(
             onPressed: () {
               usersController.logOut();
@@ -216,7 +207,13 @@ class PremisionStock extends StatelessWidget {
               ThemeController().changeTheme();
             },
             icon: const Icon(Icons.sunny),
-          )
+          ),
+          const Spacer(),
+          Text(
+            name,
+            style: context.textTheme.displayMedium,
+          ),
+          const Spacer(),
         ],
       ),
     );
@@ -229,11 +226,13 @@ class PremisionFactory extends StatelessWidget {
     required this.itemController,
     required this.usersController,
     required this.planController,
+    required this.name,
   });
 
   final ItemControllerImp itemController;
   final UsersControllerImp usersController;
   final PlanControllerImp planController;
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -291,7 +290,13 @@ class PremisionFactory extends StatelessWidget {
               ThemeController().changeTheme();
             },
             icon: const Icon(Icons.sunny),
-          )
+          ),
+          const Spacer(),
+          Text(
+            name,
+            style: context.textTheme.displayMedium,
+          ),
+          const Spacer(),
         ],
       ),
     );
@@ -306,6 +311,7 @@ class PremisionPlans extends StatelessWidget {
     required this.billInCartController,
     required this.billInController,
     required this.ingredientController,
+    required this.name,
   });
 
   final UsersControllerImp usersController;
@@ -313,6 +319,7 @@ class PremisionPlans extends StatelessWidget {
   final BillInCartControllerImp billInCartController;
   final BillInControllerImp billInController;
   final IngredientControllerImp ingredientController;
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -352,7 +359,13 @@ class PremisionPlans extends StatelessWidget {
               ThemeController().changeTheme();
             },
             icon: const Icon(Icons.sunny),
-          )
+          ),
+          const Spacer(),
+          Text(
+            name,
+            style: context.textTheme.displayMedium,
+          ),
+          const Spacer(),
         ],
       ),
     );

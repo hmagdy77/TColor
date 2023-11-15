@@ -148,17 +148,18 @@ class AddPlanScreen extends StatelessWidget {
                             MyButton(
                               text: AppStrings.prepareComponents,
                               minWidth: AppSizes.w25,
-                              onPressed: () {
+                              onPressed: () async {
                                 if (planCartController.myCarts.isEmpty ||
                                     ingredientCartController.myCarts.isEmpty) {
                                   MySnackBar.snack(AppStrings.emptyList, '');
                                 } else {
+                                  await itemController.getItems();
                                   subStockCartController.addListToUniqeCart(
                                     items: ingredientCartController.myCarts,
                                   );
                                   subStockCartController
                                       .prepareStockListToUniqeCart(
-                                    items: itemController.componetsItemsList,
+                                    items: itemController.itemsList,
                                   );
                                 }
                               },

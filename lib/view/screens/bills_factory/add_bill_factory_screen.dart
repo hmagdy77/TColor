@@ -146,17 +146,18 @@ class AddBillFactoryScreen extends StatelessWidget {
                             MyButton(
                               text: AppStrings.prepareComponents,
                               minWidth: AppSizes.w25,
-                              onPressed: () {
+                              onPressed: () async {
                                 if (billFactoryCartController.myCarts.isEmpty ||
                                     ingredientCartController.myCarts.isEmpty) {
                                   MySnackBar.snack(AppStrings.emptyList, '');
                                 } else {
+                                  await itemController.getItems();
                                   subStockCartController.addListToUniqeCart(
                                     items: ingredientCartController.myCarts,
                                   );
                                   subStockCartController
                                       .prepareStockListToUniqeCart(
-                                    items: itemController.componetsItemsList,
+                                    items: itemController.itemsList,
                                   );
                                 }
                               },
@@ -332,6 +333,7 @@ class AddBillFactoryScreen extends StatelessWidget {
         //*************************add new Bill***********************
         await billFactoryController.addBillFactory();
         await planController.getPlans();
+        await itemController.getItems();
         subStockCartController.clearCart();
         ingredientCartController.clearCart();
         billFactoryCartController.clearCart();
