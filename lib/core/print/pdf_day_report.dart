@@ -37,364 +37,358 @@ Future<void> printDayReport({
         base: arabicFont,
       ),
       pageFormat: PdfPageFormat.a4,
+      crossAxisAlignment: CrossAxisAlignment.center,
       build: (Context context) {
         return [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                // //image
-                // Container(
-                //   height: 70,
-                //   width: double.infinity,
-                //   child: Image(profileImage, fit: BoxFit.fill),
-                // ),
-                // //for height
-                // SizedBox(height: 20),
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      label,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
+          // //image
+          // Container(
+          //   height: 70,
+          //   width: double.infinity,
+          //   child: Image(profileImage, fit: BoxFit.fill),
+          // ),
+          // //for height
+          // SizedBox(height: 20),
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 20,
                 ),
-                //for height
-                SizedBox(height: 20),
-                //  stockComponents
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.stockComponents,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                //for height
-                SizedBox(height: 10),
-                //stock table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsStock,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: stockCom,
-                    ),
-                  ),
-                ),
-                //**********************************Factory*****************************************
-                //for height
-                SizedBox(height: 20),
-                //theFactory
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.theFactory,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                //for height
-                SizedBox(height: 10),
-                //products
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.products,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                //products table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsFactory,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: factoryProd,
-                    ),
-                  ),
-                ),
-                // for height
-                SizedBox(height: 10),
-                //components
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.components,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                //components table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsFactory,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: factoryCom,
-                    ),
-                  ),
-                ),
-                //**********************************Bill in*****************************************
-                //for height
-                SizedBox(height: 20),
-                //Bill in
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.billIn,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                //for height
-                SizedBox(height: 10),
-                //Bill in table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsBillIn,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: billInCom,
-                    ),
-                  ),
-                ),
-                //**********************************Bill Out*****************************************
-                //for height
-                SizedBox(height: 20),
-                //theFactory
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.billOut,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                //for height
-                SizedBox(height: 10),
-                //products
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.products,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                //products table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsBilOut,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: bilOutProd,
-                    ),
-                  ),
-                ),
-                // for height
-                SizedBox(height: 10),
-                //components
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.components,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                //components table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsBilOut,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: bilOutProd,
-                    ),
-                  ),
-                ),
-                //**********************************Bill Shortage*****************************************
-                //for height
-                SizedBox(height: 20),
-                //theFactory
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.billShortage,
-                      style: const TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-                //for height
-                SizedBox(height: 10),
-                //products
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.products,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                //products table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsBillShortage,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: shortageProd,
-                    ),
-                  ),
-                ),
-                // for height
-                SizedBox(height: 10),
-                //components
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Center(
-                    child: Text(
-                      AppStrings.components,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-                //components table
-                Container(
-                  child: Directionality(
-                    textDirection: TextDirection.rtl,
-                    child: TableHelper.fromTextArray(
-                      border: TableBorder.all(
-                        width: 3,
-                      ),
-                      headerStyle: const TextStyle(
-                        fontSize: 16,
-                      ),
-                      headerAlignment: Alignment.center,
-                      headers: columsBillShortage,
-                      cellAlignment: Alignment.center,
-                      cellStyle: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      data: shortageCom,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          )
+          ),
+          //for height
+          SizedBox(height: 20),
+          //  stockComponents
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.stockComponents,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          //for height
+          SizedBox(height: 10),
+          //stock table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsStock,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: stockCom,
+              ),
+            ),
+          ),
+          //**********************************Factory*****************************************
+          //for height
+          SizedBox(height: 20),
+          //theFactory
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.theFactory,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          //for height
+          SizedBox(height: 10),
+          //products
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.products,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          //products table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsFactory,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: factoryProd,
+              ),
+            ),
+          ),
+          // for height
+          SizedBox(height: 10),
+          //components
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.components,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          //components table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsFactory,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: factoryCom,
+              ),
+            ),
+          ),
+          //**********************************Bill in*****************************************
+          //for height
+          SizedBox(height: 20),
+          //Bill in
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.billIn,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          //for height
+          SizedBox(height: 10),
+          //Bill in table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsBillIn,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: billInCom,
+              ),
+            ),
+          ),
+          //**********************************Bill Out*****************************************
+          //for height
+          SizedBox(height: 20),
+          //theFactory
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.billOut,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          //for height
+          SizedBox(height: 10),
+          //products
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.products,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          //products table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsBilOut,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: bilOutProd,
+              ),
+            ),
+          ),
+          // for height
+          SizedBox(height: 10),
+          //components
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.components,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          //components table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsBilOut,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: bilOutProd,
+              ),
+            ),
+          ),
+          //**********************************Bill Shortage*****************************************
+          //for height
+          SizedBox(height: 20),
+          //theFactory
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.billShortage,
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          //for height
+          SizedBox(height: 10),
+          //products
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.products,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          //products table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsBillShortage,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: shortageProd,
+              ),
+            ),
+          ),
+          // for height
+          SizedBox(height: 10),
+          //components
+          Directionality(
+            textDirection: TextDirection.rtl,
+            child: Center(
+              child: Text(
+                AppStrings.components,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ),
+          //components table
+          Container(
+            child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: TableHelper.fromTextArray(
+                border: TableBorder.all(
+                  width: 3,
+                ),
+                headerStyle: const TextStyle(
+                  fontSize: 16,
+                ),
+                headerAlignment: Alignment.center,
+                headers: columsBillShortage,
+                cellAlignment: Alignment.center,
+                cellStyle: const TextStyle(
+                  fontSize: 14,
+                ),
+                data: shortageCom,
+              ),
+            ),
+          ),
         ];
       },
     ),
