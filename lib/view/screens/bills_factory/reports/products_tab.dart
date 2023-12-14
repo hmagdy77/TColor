@@ -240,7 +240,7 @@ class ProductsTab extends StatelessWidget {
       );
     }
     printBill(
-      billDate: DateFormat.yMEd().format(DateTime.now()),
+      billDate: DateFormat.yMMMMEEEEd('ar').format(DateTime.now()),
       billLenth: items.length.toString(),
       billNumber: '0',
       items: billFactoryReportController.items,

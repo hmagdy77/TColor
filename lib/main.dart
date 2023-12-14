@@ -20,10 +20,7 @@ class MyApp extends StatelessWidget {
     ]);
     return GetMaterialApp(
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
-      supportedLocales: const [
-        Locale('ar'),
-      ],
-
+      supportedLocales: const [Locale('ar')],
       locale: const Locale('ar'), //controller.language,
       debugShowCheckedModeBanner: false,
       title: 'Storage management and production movement program',

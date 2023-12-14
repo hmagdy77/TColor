@@ -3,6 +3,8 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
 import 'package:printing/printing.dart';
 
+import '../constants/app_strings.dart';
+
 const PdfColor lightGreen = PdfColor.fromInt(0xffcdf1e7);
 
 Future<void> printDayReportOneTable({
@@ -25,6 +27,52 @@ Future<void> printDayReportOneTable({
       theme: ThemeData.withFont(
         base: arabicFont,
       ),
+      footer: (context) {
+        return Column(
+          children: [
+            Divider(thickness: 1),
+            Row(
+              children: [
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Center(
+                    child: Text(
+                      '${AppStrings.hossamName} : ${AppStrings.hossaPhone}',
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(),
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: Center(
+                    child: Text(
+                      '${context.pageNumber}',
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Center(
+                    child: Text(
+                      AppStrings.programName,
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        );
+      },
       crossAxisAlignment: CrossAxisAlignment.center,
       pageFormat: PdfPageFormat.a4,
       build: (Context context) {

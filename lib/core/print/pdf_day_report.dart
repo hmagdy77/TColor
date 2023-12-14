@@ -38,6 +38,52 @@ Future<void> printDayReport({
       ),
       pageFormat: PdfPageFormat.a4,
       crossAxisAlignment: CrossAxisAlignment.center,
+      footer: (context) {
+        return Column(
+          children: [
+            Divider(thickness: 1),
+            Row(
+              children: [
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Center(
+                    child: Text(
+                      '${AppStrings.hossamName} : ${AppStrings.hossaPhone}',
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(),
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: Center(
+                    child: Text(
+                      '${context.pageNumber}',
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+                Spacer(),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: Center(
+                    child: Text(
+                      AppStrings.programName,
+                      style: const TextStyle(
+                        fontSize: 12,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        );
+      },
       build: (Context context) {
         return [
           // //image

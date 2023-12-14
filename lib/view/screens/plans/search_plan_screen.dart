@@ -73,7 +73,7 @@ class SearchPlanScreen extends StatelessWidget {
                                       var plan = planController
                                           .plansSearchList.reversed
                                           .toList()[index];
-                                      if (plan.done == '0.0') {
+                                      if (plan.components == '0.0') {
                                         return const SizedBox();
                                       } else {
                                         return GestureDetector(

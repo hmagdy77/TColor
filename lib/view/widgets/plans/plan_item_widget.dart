@@ -8,7 +8,6 @@ class PlanItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColorManger.primary,
-      height: AppSizes.h05,
       margin: EdgeInsets.symmetric(horizontal: AppSizes.w01, vertical: 5),
       child: Row(
         children: [

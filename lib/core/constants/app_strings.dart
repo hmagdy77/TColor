@@ -511,7 +511,9 @@ class AppStrings {
   static const String bounsTotal = 'اجمالي الحوافز';
   static const String restTotal = 'اجمالي مدة الاذن';
   static const String paymentTotal = 'اجمالي السلف';
-
   static const String forMonth = 'لشهر';
   static const String year = 'سنة';
+  static const String programName = 'برنامج ادارة التصنيع والمخارن';
+  static const String hossaPhone = '01009800306';
+  static const String hossamName = 'حسام مجدي';
 }

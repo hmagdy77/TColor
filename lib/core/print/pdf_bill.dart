@@ -38,6 +38,52 @@ Future<void> printBill({
         margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
         crossAxisAlignment: CrossAxisAlignment.center,
         pageFormat: PdfPageFormat.a4,
+        footer: (context) {
+          return Column(
+            children: [
+              Divider(thickness: 1),
+              Row(
+                children: [
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Center(
+                      child: Text(
+                        '${AppStrings.hossamName} : ${AppStrings.hossaPhone}',
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Directionality(
+                    textDirection: TextDirection.ltr,
+                    child: Center(
+                      child: Text(
+                        '${context.pageNumber}',
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Center(
+                      child: Text(
+                        AppStrings.programName,
+                        style: const TextStyle(
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          );
+        },
         build: (Context context) {
           return [
             // //image
@@ -46,7 +92,7 @@ Future<void> printBill({
             //   width: double.infinity,
             //   child: Image(profileImage, fit: BoxFit.fill),
             // ),
-            // //for height
+            //for height
             // SizedBox(height: 20),
             Directionality(
               textDirection: TextDirection.rtl,
