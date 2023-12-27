@@ -588,7 +588,7 @@ class ItemControllerImp extends ItemController {
           (item) {
             // var kind = item.kind;
             var subQuant = double.parse(item.itemSubQuant);
-            return subQuant != 0;
+            return subQuant >= 0.1 || subQuant <= -0.1;
           },
         )
         .toList()
